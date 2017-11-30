@@ -1,0 +1,13 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: open-platform-api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://op:123456@localhost:7000/eureka
+  instance:
+    prefer-ip-address: true

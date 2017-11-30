@@ -1,0 +1,18 @@
+server:
+  port: 7000
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: op
+    password: 123456
+
+eureka:
+  instance:
+    hostname: op-eureka-server
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@localhost:${server.port}/eureka
