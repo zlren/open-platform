@@ -2,9 +2,9 @@ package lab.zlren.op.api.controller;
 
 import lab.zlren.op.api.feign.AlgFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @author zlren
@@ -17,10 +17,14 @@ public class ApiController {
     @Autowired
     private AlgFeignClient algFeignClient;
 
-    @GetMapping("test")
-    public String test() {
-        String test = algFeignClient.test();
-        return test;
+    @PostMapping("nlp/text_keywords")
+    public String textKeywords(@RequestBody Map<String, Object> params) {
+        return algFeignClient.textKeyWords(params);
+    }
+
+    @GetMapping("nlp/{name}")
+    public String test(@PathVariable String name) {
+        return algFeignClient.testRestful(name);
     }
 
 }
