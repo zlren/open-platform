@@ -1,8 +1,9 @@
-package lab.zlren.op.alg;
+package lab.zlren.op.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 /**
  * @author zlren
@@ -10,9 +11,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class OpenPlatformAlgApplication {
+@EnableFeignClients
+public class ApiApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(OpenPlatformAlgApplication.class, args);
+        SpringApplication.run(ApiApp.class, args);
     }
 }
